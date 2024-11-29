@@ -1,6 +1,7 @@
 <script lang="ts">
 	import {
 		Accordion,
+		Button,
 		Column,
 		FileUploaderDropContainer,
 		Grid,
@@ -22,6 +23,12 @@
 
 	function handleComplete(donor: string) {
 		donationService.toggleCompleted(donor);
+	}
+
+	function handleClear() {
+		if (window.confirm('Möchstest du die Daten wirklich löschen?')) {
+			donationService.clear();
+		}
 	}
 </script>
 
@@ -45,6 +52,9 @@
 		<Row>
 			<Column>
 				<h2>Spenden {donationService.year}</h2>
+			</Column>
+			<Column>
+				<Button kind="danger-ghost" onclick={handleClear}>Löschen</Button>
 			</Column>
 		</Row>
 		<Row>

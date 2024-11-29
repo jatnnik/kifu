@@ -118,6 +118,11 @@ export function createDonationService() {
 			return completed.current.includes(donor);
 		},
 
+		clear() {
+			completed.current = [];
+			donations.current = [];
+		},
+
 		collectDonationsFromTransactions,
 		toggleCompleted
 	};
