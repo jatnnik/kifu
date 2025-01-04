@@ -45,7 +45,7 @@ export function createDonationService() {
 		for (const donation of donations.current) {
 			const { referenceNumber, date, amount } = donation;
 
-			const donorName = referenceNumber.replace('und', '&');
+			const donorName = referenceNumber.replace(/(und|u\.)/, '&');
 
 			if (!map.get(donorName)) {
 				map.set(donorName, {
